@@ -193,16 +193,18 @@ elif selected == "Pinkersons Prediction":
     with col1:
         ppec = st.text_input("Enter PPEc here ->")
         
-    
     #code for making a prediction:
     pinkersons_diagnosis = ''
     
     #Creating a button for prediction:
     if st.button("Pinkerson's Prediction Result"):
         pinkersons_diagnosis = pinkerson_pred([
-            mdvp_flo_hz, mdvp_jitter_percent, mdvp_jitter_abs,
-            mdvp_rap, mdvp_ppq, jitter_ddp, shimmer, shimmer_dda,
-            nhr, hnr, status, rpde, dfa, spread1, spread2, d2, ppe
+            mdvp_fo_hz, mdvp_fhi_hz, mdvp_flo_hz,
+            mdvp_jitter_percent, mdvp_jitter_abs, mdvp_rap,
+            mdvp_ppq, mdvp_shimmer, mdvp_shimmer_db,
+            shimmer_apq_three, shimmer_aqp_five, mdvp_apq,
+            shimmer_dda, nhr, hnr, status, rpde,
+            dfa, spread_one, spread_two, d_two, ppec
         ])
 
     st.success(pinkersons_diagnosis)
@@ -235,7 +237,6 @@ elif selected == "Breast Cancer Prediction":
     with col3:
         compactness_mean = st.text_input("Enter compactness mean here ->")
         
-    
     with col1:
         concavity_mean = st.text_input("Enter concavity mean here ->")
     
@@ -245,7 +246,6 @@ elif selected == "Breast Cancer Prediction":
     with col3:
         symmetry_mean = st.text_input("Enter symmetry mean here ->")
         
-    
     with col1:
         fractal_dimension_mean = st.text_input("Enter fractal dimension mean here ->")
     
@@ -307,23 +307,21 @@ elif selected == "Breast Cancer Prediction":
         fractal_dimension_worst = st.text_input("Enter fractal_dimension_worst here ->")
     
     # code for making a prediction:
-cancer_diagnosis = ""
+    cancer_diagnosis = ""
 
-#Creating a button for prediction:
-if st.button("Cancer Prediction Result"):
-    cancer_diagnosis = cancer_pred([
-        radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean,
-        compactness_mean, concavity_mean, concave_points_mean, symmetry_mean,
-        fractal_dimension_mean, radius_se, texture_se, perimeter_se, area_se,
-        smoothness_se, compactness_se, concavity_se, symmetry_se,
-        fractal_dimension_se, radius_worst, texture_worst, perimeter_worst,
-        area_worst, smoothness_worst, compactness_worst, concavity_worst,
-        concave_points_worst, symmetry_worst, fractal_dimension_worst
-    ])
+    #Creating a button for prediction:
+    if st.button("Cancer Prediction Result"):
+        cancer_diagnosis = cancer_pred([
+            radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean,
+            compactness_mean, concavity_mean, concave_points_mean, symmetry_mean,
+            fractal_dimension_mean, radius_se, texture_se, perimeter_se, area_se,
+            smoothness_se, compactness_se, concavity_se, symmetry_se,
+            fractal_dimension_se, radius_worst, texture_worst, perimeter_worst,
+            area_worst, smoothness_worst, compactness_worst, concavity_worst,
+            concave_points_worst, symmetry_worst, fractal_dimension_worst
+        ])
 
-st.success(cancer_diagnosis)
-
-
+    st.success(cancer_diagnosis)
 
 #Heart Disease Page:
 
@@ -387,5 +385,3 @@ elif selected == "Heart Disease Prediction":
         )
 
     st.success(heart_diagnosis)
-    
-                   
