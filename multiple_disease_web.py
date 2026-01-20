@@ -5,13 +5,10 @@ from streamlit_option_menu import option_menu
 
 # Loading the saved models in binary mode:
 
-loaded_model = pickle.load(open("C:/Users/ADITYA/Downloads/ML_Project/trained_file.sav",'rb'))
-
-pinkersons_model = pickle.load(open("C:/Users/ADITYA/Downloads/ML_Project/pirnkersons_file.sav",'rb'))
-
-heart_model = pickle.load(open("C:/Users/ADITYA/Downloads/ML_Project/heart_file.sav",'rb'))
-
-cancer_model = pickle.load(open("C:/Users/ADITYA/Downloads/ML_Project/cancer_prediction.sav",'rb')) 
+loaded_model = pickle.load(open("saved_models/trained_file.sav", "rb"))
+pinkersons_model = pickle.load(open("saved_models/pirnkersons_file.sav", "rb"))
+heart_model = pickle.load(open("saved_models/heart_file.sav", "rb"))
+cancer_model = pickle.load(open("saved_models/cancer_prediction.sav", "rb"))
 
 # Prediction function for diabetes:
 def diabetes_pred(input_data):
@@ -385,3 +382,4 @@ elif selected == "Heart Disease Prediction":
         )
 
     st.success(heart_diagnosis)
+
